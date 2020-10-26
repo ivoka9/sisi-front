@@ -10,7 +10,7 @@ function AllOrders(props) {
   useEffect(() => {
     fetchingData();
     async function fetchingData() {
-      const url = "http://localhost:4000/admin/orders";
+      const url = process.env.REACT_APP_URL +"admin/orders";
       const data = await fetch(url);
       const data_json = await data.json();
       setOrders(data_json.orders);

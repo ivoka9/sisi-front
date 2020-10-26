@@ -10,7 +10,8 @@ class NewProduct extends React.Component {
 
   handleCloudanaryUpload = async (e) => {
     e.preventDefault();
-    const url = "https://api.cloudinary.com/v1_1/ddwmoe9ag/image/upload";
+    const url = process.env.REACT_APP_CLOUD ;
+    console.log(url)
     let imgArrayUrl = [];
     const files = e.target.images.files;
     for (let i = 0; i < files.length; i++) {
@@ -30,7 +31,7 @@ class NewProduct extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     this.setState({ isLoading: true });
-    const URL = "http://localhost:4000/admin/item/new";
+    const URL = process.env.REACT_APP_URL + "admin/item/new";
     const data = new FormData();
     data.append("name", e.target.name.value);
     data.append("price", e.target.price.value);
@@ -44,6 +45,7 @@ class NewProduct extends React.Component {
   };
 
   render() {
+    console.log(process.env.REACT_APP_CLOUD)
     if (this.state.isLoading) return <h1>Creating POST</h1>;
     return (
       <Form size="big" onSubmit={this.handleSubmit}>

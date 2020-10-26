@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+import '../../Css/MainView.css'
 
 class MainView extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class MainView extends React.Component {
   }
 
   async componentDidMount() {
-    const URL = "https://sisi-api-store.herokuapp.com/";
+    const URL = process.env.REACT_APP_URL ;
     const data = await fetch(URL);
     const data_json = await data.json();
     this.setState({
@@ -25,7 +26,7 @@ class MainView extends React.Component {
   handleDelete = async (e) => {
     e.preventDefault();
     const url =
-      "https://sisi-api-store.herokuapp.com/admin/item/delete/" + e.target.id;
+      process.env.REACT_APP_URL + "admin/item/delete/" + e.target.id;
     await fetch(url, { method: "DELETE" });
     this.componentDidMount();
   };
@@ -47,13 +48,10 @@ class MainView extends React.Component {
     ));
     return (
       <div className="container">
-        <header className="jumbotron my-4">
-          <h1 className="display-3">A Warm Welcome!</h1>
+        <header className="jumbotron my-4 img">
+          <h1 className="display-3">Buy ! </h1>
           <p className="lead">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa,
-            ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid
-            similique quaerat nam nobis illo aspernatur vitae fugiat numquam
-            repellat.
+           Super Cool Shop
           </p>
         </header>
         <div className="row text-center">{Cards}</div>

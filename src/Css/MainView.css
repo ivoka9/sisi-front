@@ -1,0 +1,9 @@
+.img{
+    background-image: url('./hero.jpeg');
+    background-size: fixed
+    
+}
+
+.card-img-top{
+    height: 200px;
+}

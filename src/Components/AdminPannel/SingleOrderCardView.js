@@ -7,7 +7,7 @@ function SingleOrderCardView(props) {
 
   useEffect(() => {
     const fetchingData = async () => {
-      const url = "http://localhost:4000/admin/order/" + props.id;
+      const url = process.env.REACT_APP_URL+ "admin/order/" + props.id;
       const data = await fetch(url);
       const data_json = await data.json();
       setInformation(data_json.order);
@@ -16,7 +16,7 @@ function SingleOrderCardView(props) {
   }, [orderDone]);
 
   const handleSendItem = async () => {
-    const url = "http://localhost:4000/order/done/" + props.id;
+    const url = process.env.REACT_APP_URL+ "order/done/" + props.id;
     await fetch(url, { method: "put" });
     setOrderDone(true);
   };

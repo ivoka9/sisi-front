@@ -24,7 +24,7 @@ function PlaceOrder(props){
     useEffect(()=>{
         fetchData(id)      
         async function fetchData (id){
-        const url = 'https://sisi-api-store.herokuapp.com/order/' + id
+        const url = process.env.REACT_APP_URL  + "order/" + id
         const data = await fetch(url)
         const data_json = await data.json()
         const states = Object.keys(data_json.states)
@@ -50,12 +50,9 @@ function PlaceOrder(props){
       data.append('zip',e.target.zip.value)
       data.append('state',e.target.state.value)
 
-      for(const key of data.entries()){
-        console.log(key[0],key[1]) 
-      }
-      const url = 'http://localhost:4000/order/' + id
+    
       
-      //const url = 'https://sisi-api-store.herokuapp.com/order/' + id
+      const url =  process.env.REACT_APP_URL + 'order/' + id
       const res = await fetch(url,{body: data,method:"post",})
       const res_json= await res.json()
       setOrderIsPlaced(res_json.order)

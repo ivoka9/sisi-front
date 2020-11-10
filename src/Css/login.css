@@ -1,0 +1,19 @@
+body {
+  position: relative;
+}
+.ui.menu {
+  margin: 0;
+}
+.ui.tabular.fluid.menu {
+  height: 50px;
+}
+.loginBlock {
+  height: calc(100vh - 50px);
+  display: flex;
+  background-image: linear-gradient(to top right, #eba426, #ff3468);
+}
+.loginContainter {
+  justify-self: center;
+  align-self: center;
+  border-radius: 5px;
+}

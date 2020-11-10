@@ -23,7 +23,7 @@ export default class AdminMainView extends Component {
     const data = new FormData();
     data.append("username", e.target.username.value);
     data.append("password", e.target.password.value);
-    const res = await fetch("http://localhost:4000/user/login", {
+    const res = await fetch(process.env.REACT_APP_URL + "user/login", {
       method: "POST",
       body: data,
     });
@@ -36,6 +36,11 @@ export default class AdminMainView extends Component {
       });
       localStorage.setItem("token", res_json.token);
       localStorage.setItem("username", res_json.username);
+    } else if (res.status === 401) {
+      this.setState({
+        activeItem: "Login",
+        activeBlock: "Login",
+      });
     }
   };
 
@@ -117,7 +122,7 @@ export default class AdminMainView extends Component {
             )}
           </Menu.Menu>
         </Menu>
-        <Segment attached="top">{this.handleActiveBlock(activeBlock)}</Segment>
+        {this.handleActiveBlock(activeBlock)}
       </div>
     );
   }

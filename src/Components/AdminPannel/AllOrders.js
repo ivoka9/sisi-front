@@ -28,6 +28,9 @@ function AllOrders(props) {
     return <SingleOrderCardView token={props.token} id={singleOrder} />;
   }
   const singleOrders = orders.map((order) => {
+    if (props.id === null) {
+      return null;
+    }
     return (
       <SingleOrderCard
         key={order._id}

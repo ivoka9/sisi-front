@@ -1,0 +1,29 @@
+.middle {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.background {
+  height: calc(100vh - 50px);
+}
+
+.background img {
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .background {
+    background-color: grey;
+  }
+  .background {
+    height: calc(100vh - 50px);
+  }
+  .background img {
+    display: none;
+  }
+  .middle {
+  }
+}

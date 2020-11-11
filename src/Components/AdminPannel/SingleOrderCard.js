@@ -3,7 +3,7 @@ import { Card, Button } from "semantic-ui-react";
 
 function SingleOrderCard(props) {
   return (
-    <Card>
+    <Card className="mx-auto mt-5">
       <Card.Content>
         <Card.Header>{props.name}</Card.Header>
         <Card.Description>{props.address}</Card.Description>
